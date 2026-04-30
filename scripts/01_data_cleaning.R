@@ -228,35 +228,85 @@ write_csv(tidy(model3), "outputs/model3_causal_informed_regression.csv")
 capture.output(summary(model3), file = "outputs/regression_summary.txt")
 
 # --------------------------------------------
-# 10. Visualization
+# 10. Visualizations for Model 1, Model 2, Model 3
 # --------------------------------------------
 
-p <- ggplot(gh_data, aes(x = maladaptive_perfectionism, y = decision_avoidance)) +
+# Model 1 predicted values
+gh_data <- gh_data %>%
+  mutate(
+    predicted_m1 = predict(model1),
+    predicted_m2 = predict(model2),
+    predicted_m3 = predict(model3)
+  )
+
+# Model 1: Unadjusted association
+p1 <- ggplot(gh_data, aes(x = maladaptive_perfectionism, y = decision_avoidance)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method = "lm", se = TRUE) +
   labs(
-    title = "Maladaptive Perfectionism and Decision Avoidance",
-    subtitle = "Observed association in GitHub-safe AMPERE sample",
+    title = "Model 1: Unadjusted Association",
+    subtitle = "Decision avoidance predicted by maladaptive perfectionism only",
     x = "Maladaptive Perfectionism",
     y = "Decision Avoidance"
   ) +
   theme_minimal()
 
-p
-
 ggsave(
-  filename = "outputs/maladaptive_decision_avoidance_plot.png",
-  plot = p,
+  filename = "outputs/model1_unadjusted_plot.png",
+  plot = p1,
   width = 7,
   height = 5
 )
 
+p1
+
+# Model 2: Predicted decision avoidance after adjusting for adaptive perfectionism
+p2 <- ggplot(gh_data, aes(x = maladaptive_perfectionism, y = predicted_m2)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(
+    title = "Model 2: AMPERE-Adjusted Relationship",
+    subtitle = "Predicted decision avoidance adjusted for adaptive perfectionism",
+    x = "Maladaptive Perfectionism",
+    y = "Predicted Decision Avoidance"
+  ) +
+  theme_minimal()
+
+ggsave(
+  filename = "outputs/model2_ampere_adjusted_plot.png",
+  plot = p2,
+  width = 7,
+  height = 5
+)
+
+p2
+
+# Model 3: Predicted decision avoidance after causal-informed adjustment
+p3 <- ggplot(gh_data, aes(x = maladaptive_perfectionism, y = predicted_m3)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(
+    title = "Model 3: Causal-Informed Adjustment",
+    subtitle = "Predicted decision avoidance adjusted for adaptive perfectionism, APS-R discrepancy, and MPS-SPP",
+    x = "Maladaptive Perfectionism",
+    y = "Predicted Decision Avoidance"
+  ) +
+  theme_minimal()
+
+ggsave(
+  filename = "outputs/model3_causal_informed_plot.png",
+  plot = p3,
+  width = 7,
+  height = 5
+)
+
+p3
 # --------------------------------------------
-# 11. Simple DAG-Informed Assumption Diagram
+# 11. DAG-Informed Assumption Diagram
 # --------------------------------------------
 
 dag_data <- tibble(
-  x = c(1, 2, 3, 2, 2),
+  x = c(1.6, 2, 3, 2, 2),
   y = c(3, 3, 3, 2, 1),
   label = c(
     "Related\nPerfectionism\nConstructs",
@@ -269,7 +319,7 @@ dag_data <- tibble(
 
 dag_plot <- ggplot(dag_data, aes(x, y, label = label)) +
   geom_text(size = 4.5) +
-  annotate("segment", x = 1.25, y = 3, xend = 1.75, yend = 3, arrow = arrow()) +
+  annotate("segment", x = 1.9, y = 3, xend = 1.75, yend = 3, arrow = arrow()) +
   annotate("segment", x = 2.25, y = 3, xend = 2.75, yend = 3, arrow = arrow()) +
   annotate("segment", x = 2, y = 2.25, xend = 2, yend = 2.75, arrow = arrow()) +
   annotate("segment", x = 2, y = 1.25, xend = 2, yend = 1.75, arrow = arrow()) +
@@ -279,15 +329,13 @@ dag_plot <- ggplot(dag_data, aes(x, y, label = label)) +
   ) +
   theme_void()
 
-dag_plot
-
 ggsave(
   filename = "outputs/dag_causal_reasoning_framework.png",
   plot = dag_plot,
   width = 7,
-  height = 5
+  height = 7
 )
-
+dag_plot
 # --------------------------------------------
 # 12. Print Main Model Summary
 # --------------------------------------------
@@ -295,4 +343,3 @@ ggsave(
 summary(model1)
 summary(model2)
 summary(model3)
-
