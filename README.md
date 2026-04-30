@@ -30,7 +30,7 @@ Understanding this relationship can inform:
 - UX and product design  
 - decision-support tools  
 
-## 📊 Results
+## Results
 
 ### Overview
 
