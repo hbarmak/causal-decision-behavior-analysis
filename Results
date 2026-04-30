@@ -1,0 +1,72 @@
+## Results
+
+### Overview
+
+A series of regression models were estimated to examine the relationship between maladaptive perfectionism and decision avoidance, progressively adjusting for related perfectionism constructs.
+
+---
+
+### Model 1 — Baseline Association
+
+A simple linear regression model showed that maladaptive perfectionism was positively associated with decision avoidance.
+
+- Estimate: β = 0.29  
+- p < 0.01  
+
+This suggests that higher levels of maladaptive perfectionism are linked to greater tendencies to avoid decision-making.
+
+---
+
+### Model 2 — Adjusting for Adaptive Perfectionism
+
+After including adaptive perfectionism in the model:
+
+- Maladaptive perfectionism remained significant  
+- Adaptive perfectionism was not a significant predictor  
+
+This indicates that the relationship between maladaptive perfectionism and decision avoidance is not explained by achievement-oriented (adaptive) perfectionism.
+
+---
+
+### Model 3 — Causal-Informed Adjustment
+
+A third model incorporated additional theoretically relevant constructs:
+
+- APS-R Discrepancy (internal distress)
+- MPS Socially Prescribed Perfectionism (external pressure)
+
+#### Key findings:
+
+- Maladaptive perfectionism was no longer significant  
+- Socially prescribed perfectionism (MPS_SPP) emerged as a significant predictor (p < 0.05)  
+- Model fit improved (R² increased from ~0.07 to ~0.12)
+
+---
+
+### Interpretation
+
+Initial models suggested that maladaptive perfectionism is associated with increased decision avoidance. However, after accounting for broader perfectionism constructs, particularly socially prescribed perfectionism, this relationship was no longer significant.
+
+Instead, socially prescribed perfectionism — reflecting perceived external expectations and evaluative pressure — was more strongly associated with decision avoidance.
+
+This suggests that decision avoidance may be driven more by external pressure than by internal perfectionistic tendencies alone.
+
+---
+
+###  Causal Interpretation
+
+This analysis is based on observational data and should be interpreted using causal reasoning rather than definitive causal claims.
+
+The inclusion of theoretically relevant covariates (adaptive perfectionism, discrepancy, and socially prescribed perfectionism) helps reduce potential confounding. However, unobserved factors may still influence the results.
+
+---
+
+###  Key Takeaway
+
+> Decision avoidance appears to be more strongly associated with externally driven perfectionism (social pressure) than with internal maladaptive perfectionism alone.
+
+This insight has implications for:
+
+- student support interventions  
+- mental health and academic advising  
+- product design in high-stakes decision environments  
