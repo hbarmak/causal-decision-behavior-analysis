@@ -30,8 +30,7 @@ Understanding this relationship can inform:
 - UX and product design  
 - decision-support tools  
 
----
-##  Results
+## 📊 Results
 
 ### Overview
 
@@ -41,48 +40,62 @@ A series of regression models were estimated to examine the relationship between
 
 ### Model 1 — Baseline Association
 
-A simple linear regression model showed that maladaptive perfectionism was positively associated with decision avoidance.
+**Model specification:**
+
+\[
+DecisionAvoidance = \beta_0 + \beta_1(Maladaptive) + \epsilon
+\]
+
+**Results:**
 
 - Estimate: β = 0.29  
 - p < 0.01  
 
-This suggests that higher levels of maladaptive perfectionism are linked to greater tendencies to avoid decision-making.
+This suggests that higher levels of maladaptive perfectionism are associated with greater decision avoidance.
 
 ---
 
 ### Model 2 — Adjusting for Adaptive Perfectionism
 
-After including adaptive perfectionism in the model:
+**Model specification:**
 
-- Maladaptive perfectionism remained significant  
-- Adaptive perfectionism was not a significant predictor  
+\[
+DecisionAvoidance = \beta_0 + \beta_1(Maladaptive) + \beta_2(Adaptive) + \epsilon
+\]
 
-This indicates that the relationship between maladaptive perfectionism and decision avoidance is not explained by achievement-oriented (adaptive) perfectionism.
+**Results:**
+
+- Maladaptive perfectionism: β = 0.29, p < 0.01  
+- Adaptive perfectionism: β = -0.13, p = 0.36 (not significant)
+
+Maladaptive perfectionism remained a significant predictor, while adaptive perfectionism was not associated with decision avoidance.
 
 ---
 
 ### Model 3 — Causal-Informed Adjustment
 
-A third model incorporated additional theoretically relevant constructs:
+**Model specification:**
 
-- APS-R Discrepancy (internal distress)
-- MPS Socially Prescribed Perfectionism (external pressure)
+\[
+DecisionAvoidance = \beta_0 + \beta_1(Maladaptive) + \beta_2(Adaptive) + \beta_3(APSR\_Discrepancy) + \beta_4(MPS\_SPP) + \epsilon
+\]
 
-#### Key findings:
+**Results:**
 
-- Maladaptive perfectionism was no longer significant  
-- Socially prescribed perfectionism (MPS_SPP) emerged as a significant predictor (p < 0.05)  
-- Model fit improved (R² increased from ~0.07 to ~0.12)
+- Maladaptive perfectionism: β = 0.10, p = 0.56 (not significant)  
+- Adaptive perfectionism: β = -0.15, p = 0.31 (not significant)  
+- APS-R Discrepancy: β = 0.02, p = 0.81 (not significant)  
+- MPS Socially Prescribed Perfectionism: β = 0.28, p = 0.012 (significant)  
+
+Model fit improved (R² increased from ~0.07 to ~0.12).
 
 ---
 
 ###  Interpretation
 
-Initial models suggested that maladaptive perfectionism is associated with increased decision avoidance. However, after accounting for broader perfectionism constructs, particularly socially prescribed perfectionism, this relationship was no longer significant.
+Initial models suggested that maladaptive perfectionism is associated with increased decision avoidance. However, after adjusting for broader perfectionism constructs, this relationship was no longer significant.
 
-Instead, socially prescribed perfectionism — reflecting perceived external expectations and evaluative pressure — was more strongly associated with decision avoidance.
-
-This suggests that decision avoidance may be driven more by external pressure than by internal perfectionistic tendencies alone.
+Instead, socially prescribed perfectionism emerged as the only significant predictor, suggesting that **external evaluative pressure** may play a more central role in decision avoidance than internal maladaptive tendencies alone.
 
 ---
 
@@ -90,19 +103,13 @@ This suggests that decision avoidance may be driven more by external pressure th
 
 This analysis is based on observational data and should be interpreted using causal reasoning rather than definitive causal claims.
 
-The inclusion of theoretically relevant covariates (adaptive perfectionism, discrepancy, and socially prescribed perfectionism) helps reduce potential confounding. However, unobserved factors may still influence the results.
+The inclusion of theoretically relevant covariates helps reduce potential confounding, but unobserved factors may still influence the results.
 
 ---
 
-### Key Takeaway
+###  Key Takeaway
 
-> Decision avoidance appears to be more strongly associated with externally driven perfectionism (social pressure) than with internal maladaptive perfectionism alone.
-
-This insight has implications for:
-
-- student support interventions  
-- mental health and academic advising  
-- product design in high-stakes decision environments  
+> Decision avoidance appears to be more strongly associated with externally driven perfectionism (social pressure) than with internal maladaptive perfectionism alone. 
 
 ## Dataset
 
